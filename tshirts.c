@@ -21,7 +21,7 @@ int main() {
     assert(size(42) == 'M'); //Size 42 is undefined size
     assert(size(43) == 'L');
     assert(size(29) != 'S'); //No Small size lower limit is specified, unbounded input range
-	assert(size(43) != 'L'); //No Large size higher limit is specified, unbounded input range
+    assert(size(43) != 'L'); //No Large size higher limit is specified, unbounded input range
     printf("All is well (maybe!)\n");
     return 0;
 }
