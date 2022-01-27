@@ -20,6 +20,7 @@ bool checkCompleteMessage()
         printf("%d",lineNumber[i]);
         if (lineNumber[i] == 1)
             return true;
+        else;
     }
     return false;
 }
@@ -38,7 +39,7 @@ void findSepPosition(char * str)
         sep2Position = pch-str+1;
 }
 
-bool validateSeparatorPosition(char *str, int len)
+bool validateSeparatorPosition(char *str)
 {
     currentLine++;
     findSepPosition(str);
@@ -51,9 +52,9 @@ bool validateSeparatorPosition(char *str, int len)
 
 void printColorMaponConsole(int d, const char *s1, const char *s2 ) {
     char textToBePrintedOnConsole[50];
-	int len = sprintf(textToBePrintedOnConsole, "%2d | %s | %s", d, s1, s2);
+	sprintf(textToBePrintedOnConsole, "%2d | %s | %s", d, s1, s2);
     //printf("%s\n", textToBePrintedOnConsole);
-    validateSeparatorPosition(textToBePrintedOnConsole, len);
+    validateSeparatorPosition(textToBePrintedOnConsole);
 
     //printf("%s\n",textToBePrintedOnConsole);
 
