@@ -20,7 +20,8 @@ bool checkCompleteMessage()
         printf("%d",lineNumber[i]);
         if (lineNumber[i] == 1)
             return true;
-        else;
+        else
+	    {}
     }
     return false;
 }
