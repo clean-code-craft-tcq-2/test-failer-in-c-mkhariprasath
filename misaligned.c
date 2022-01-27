@@ -19,9 +19,13 @@ bool checkCompleteMessage()
     {
         printf("%d",lineNumber[i]);
         if (lineNumber[i] == 1)
-            return true;
-        else
-	    {}
+	{
+		return true;
+	}
+	else
+	{
+		continue;
+	}
     }
     return false;
 }
