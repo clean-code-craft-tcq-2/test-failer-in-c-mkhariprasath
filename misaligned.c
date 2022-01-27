@@ -16,14 +16,14 @@ int currentLine = 0;
 bool checkCompleteMessage()
 {
 	bool flag = false;
-    for (int i  = 0; i < 25; i++)
-    {
-        printf("%d",lineNumber[i]);
-        if (lineNumber[i] == 1)
-	{
-		flag = true;
-	}
-    }
+//     for (int i  = 0; i < 25; i++)
+//     {
+//         printf("%d",lineNumber[i]);
+//         if (lineNumber[i] == 1)
+// 	{
+// 		flag = true;
+// 	}
+//     }
     return flag;
 }
 
