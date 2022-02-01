@@ -1,19 +1,10 @@
 #include <stdio.h>
 #include <assert.h>
-#define TEMP_THRESHOLD_CELCIUS 175
+#include "temperatureAlert.h"
 
 void networkAlertFailureCheck(int returnCode); 
 
 int alertFailureCount = 0;
-
-int networkAlertStub(float celcius) {
-	printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-    if (celcius <= TEMP_THRESHOLD_CELCIUS) {
-		return 200;
-	} else {
-		return 500;
-	}
-}
 
 void testAlertInCelcius(float farenheit, int expectedAlertFailureCount){
 
@@ -28,6 +19,19 @@ void testAlertInCelcius(float farenheit, int expectedAlertFailureCount){
 void testFarenheitToCelciusConvertor(float farenheit, float expectedCelcius){
 	assert(farenheitToCelciusConvertor(farenheit) == expectedCelcius);
 }
+
+
+int networkAlertStub(float celcius) {
+	printf("ALERT: Temperature is %.1f celcius.\n", celcius);
+    if (celcius <= TEMP_THRESHOLD_CELCIUS) {
+		return 200;
+	} else {
+		return 500;
+	}
+}
+
+
+
 
 int main() {
 	testFarenheitToCelciusConvertor(400.5, 204.722222f);
