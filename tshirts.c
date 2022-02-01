@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "tShirtTester.h"
+#include "tshirt.h"
 
 char tshirtSize(int size_cms) {
     char sizeName = '\0';
