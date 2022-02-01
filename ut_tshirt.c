@@ -1,4 +1,4 @@
-#include "tshirtTester.h"
+#include "tshirt.h"
 #include <assert.h>
 
 void testTshirtSize(int size_cms, char expectedSize) {
