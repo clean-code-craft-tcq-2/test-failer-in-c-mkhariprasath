@@ -12,15 +12,15 @@ jobs:
 
     - name: tshirts fail
       run: |
-        g++ -Wall -Wextra -Werror tshirts.c -o tshirts.out
-
+        g++ -Wall -Wextra -Werror tshirts.c tShirtTester.c -o tshirts.out
+	./tshirts.out
 
     - name: misaligned fail
       run: |
-        g++ -Wall -Wextra -Werror misaligned.c -o misaligned.out
-
+        g++ -Wall -Wextra -Werror colorCodeManual.c testColorCodeManual.c -o misaligned.out
+	./misaligned.out
 
     - name: alerter fail
       run: |
-        g++ -Wall -Wextra -Werror alerter.c -o alerter.out
-
+        g++ -Wall -Wextra -Werror temperatureAlert.c testTemperatureAlert.c -o alerter.out
+	./alerter.out
