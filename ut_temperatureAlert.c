@@ -5,8 +5,6 @@
 void networkAlertFailureCheck(int returnCode); 
 int networkAlertStub(float celcius);
 
-int alertFailureCount = 0;
-
 void testAlertInCelcius(float farenheit, int expectedAlertFailureCount){
 
         // non-ok response is not an error! Issues happen in life!
