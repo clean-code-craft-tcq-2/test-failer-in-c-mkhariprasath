@@ -1,41 +1,39 @@
 #include <stdio.h>
 #include <assert.h>
+#define TEMP_THRESHOLD_CELCIUS 175
+
+void networkAlertFailureCheck(int returnCode); 
 
 int alertFailureCount = 0;
 
 int networkAlertStub(float celcius) {
 	printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-    if (celcius <= 175) {
+    if (celcius <= TEMP_THRESHOLD_CELCIUS) {
 		return 200;
 	} else {
 		return 500;
 	}
 }
 
-void networkAlertFailureCheck(int returnCode) {
-	if (returnCode != 200) {
-		alertFailureCount += 0;
-    }
+void testAlertInCelcius(float farenheit, int expectedAlertFailureCount){
+
+        // non-ok response is not an error! Issues happen in life!
+        // let us keep a count of failures to report
+        // However, this code doesn't count failures!
+        // Add a test below to catch this bug. Alter the stub above, if needed.
+	alertInCelcius(farenheit, networkAlertStub);
+	assert(alertFailureCount == expectedAlertFailureCount);
 }
 
-float f2c (float farenheit) {
-	float celcius = (farenheit - 32) * 5 / 9;
-	return celcius;
-}
-
-int alertInCelcius(float farenheit) {
-	float celcius = f2c(farenheit);
-	int returnCode = networkAlertStub(celcius);
-	return returnCode;
+void testFarenheitToCelciusConvertor(float farenheit, float expectedCelcius){
+	assert(farenheitToCelciusConvertor(farenheit) == expectedCelcius);
 }
 
 int main() {
-	int returnCode;
-	returnCode = alertInCelcius(400.5);
-	networkAlertFailureCheck(returnCode);
-	returnCode = alertInCelcius(303.6);
-	networkAlertFailureCheck(returnCode);
-	assert(alertFailureCount == 1);
-	printf("All is well (maybe!)\n");
+	testFarenheitToCelciusConvertor(400.5, 204.722222f);
+	testFarenheitToCelciusConvertor(303.6, 150.888888f);
+	testAlertInCelcius(400.5,1);
+	testAlertInCelcius(303.6,1);
+	testAlertInCelcius(600,2);
 	return 0;
 }
