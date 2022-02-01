@@ -3,6 +3,7 @@
 #include "temperatureAlert.h"
 
 void networkAlertFailureCheck(int returnCode); 
+int networkAlertStub(float celcius);
 
 int alertFailureCount = 0;
 
