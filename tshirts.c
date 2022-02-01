@@ -1,27 +1,19 @@
 #include <stdio.h>
-#include <assert.h>
+#include "tShirtTester.h"
 
-char size(int cms) {
+char tshirtSize(int size_cms) {
     char sizeName = '\0';
-    if(cms < 38) {
+    if(size_cms > MIN_S_SIZE &&
+			size_cms <= MAX_S_SIZE) {
         sizeName = 'S';
-    } else if(cms > 38 && cms < 42) {
+    } else if(size_cms > MIN_M_SIZE &&
+			size_cms < MAX_M_SIZE) {
         sizeName = 'M';
-    } else if(cms > 42) {
+    } else if(size_cms >= MIN_L_SIZE &&
+			size_cms < MAX_L_SIZE) {
         sizeName = 'L';
-    }
+    } else {
+	}
     return sizeName;
 }
 
-int main() {
-    assert(size(37) == 'S');
-    assert(size(38) == 'S');//size 38 is undefined size
-    assert(size(-38) == 'S'); //size is a unsigned integer, doesnot cover the negative inputs
-    assert(size(40) == 'M');
-    assert(size(42) == 'M'); //Size 42 is undefined size
-    assert(size(43) == 'L');
-    assert(size(29) != 'S'); //No Small size lower limit is specified, unbounded input range
-    assert(size(43) != 'L'); //No Large size higher limit is specified, unbounded input range
-    printf("All is well (maybe!)\n");
-    return 0;
-}
