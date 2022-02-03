@@ -12,15 +12,17 @@ jobs:
 
     - name: tshirts fail
       run: |
-        g++ -Wall -Wextra -Werror tshirts.c -o tshirts.out
-        bash .github/workflows/expectfail.sh ./tshirts.out
+        g++ -Wall -Wextra -Werror tshirt.c ut_tshirt.c -o tshirts.out
+        ./tshirts.out
 
     - name: misaligned fail
       run: |
-        g++ -Wall -Wextra -Werror misaligned.c -o misaligned.out
-        bash .github/workflows/expectfail.sh ./misaligned.out
+        g++ -Wall -Wextra -Werror colorCodeManual.c ut_ColorCodeManual.c -o misaligned.out
+        ./misaligned.out
+
 
     - name: alerter fail
       run: |
-        g++ -Wall -Wextra -Werror alerter.c -o alerter.out
-        bash .github/workflows/expectfail.sh ./alerter.out
+        g++ -Wall -Wextra -Werror temperatureAlert.c ut_temperatureAlert.c -o alerter.out
+        ./alerter.out
+
